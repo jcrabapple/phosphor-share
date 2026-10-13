@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Phosphor Share</title>
+		<link rel="stylesheet" href="popup.css" />
+	</head>
+	<body>
+		<header class="bar">
+			<h1>PHOSPHOR SHARE</h1>
+			<button id="settings-toggle" class="linky" type="button" aria-pressed="false" title="Settings">SET</button>
+		</header>
+
+		<!-- status / alerts view -->
+		<section id="status-view">
+			<div class="tally" id="tally">
+				<a id="alerts-link" href="https://bbs.snakepit.us/notifications" target="_blank">ALERTS <span class="count" id="unread-count">–</span></a>
+				<a id="mail-link" href="https://bbs.snakepit.us/mail" target="_blank">MAIL <span class="count" id="mail-count">–</span></a>
+			</div>
+			<p class="meta" id="fetched-at"></p>
+		</section>
+
+		<p id="status-note" class="note" role="status" hidden></p>
+
+		<!-- share form -->
+		<section id="share-view">
+			<p class="page" id="page-title"></p>
+			<form id="share-form">
+				<label for="share-title">Topic title</label>
+				<input id="share-title" name="title" maxlength="200" required />
+				<label for="share-category">Category</label>
+				<select id="share-category" name="categoryId" required></select>
+				<label for="share-comment">Comment <span class="hint">(optional, goes before the link)</span></label>
+				<textarea id="share-comment" name="comment" rows="3" maxlength="1000"></textarea>
+				<button id="share-btn" type="submit" class="cta">SHARE TO PHOSPHOR</button>
+			</form>
+			<p id="share-result" class="result" aria-live="polite"></p>
+		</section>
+
+		<!-- settings view (token) -->
+		<section id="settings-view" hidden>
+			<form id="settings-form">
+				<label for="settings-token">Extension token</label>
+				<input id="settings-token" name="token" type="password" spellcheck="false" autocomplete="off" required />
+				<p class="hint">Generate one in Phosphor: Settings, Extension token, Generate. Paste it here.</p>
+				<button type="submit" class="cta">SAVE &amp; VERIFY</button>
+			</form>
+			<p id="settings-result" class="result" aria-live="polite"></p>
+		</section>
+
+		<script src="popup.js"></script>
+	</body>
+</html>
